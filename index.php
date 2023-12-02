@@ -1,5 +1,8 @@
 <?php
 const URL_SITE = "http://localhost/joaoEger.com/";
+require_once "mobile_device_detect.php";
+
+$isMobile = mobile_device_detect();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -14,15 +17,13 @@ const URL_SITE = "http://localhost/joaoEger.com/";
 <body>
     <main>
         <?php require_once "components/nav.php"?>
-        <div class="container">
-            <div class="row">
-            <?php
-            require_once "views/{$page}.php";
-            ?>
-            </div>
+        <div class="container<?php echo ($page == 'home') ? '-fluid p-0' : ''?>">
+                <?php
+                require_once "views/{$page}.php";
+                ?>
         </div>
-        <?php require_once "components/footer.php"?>
     </main>
+    <?php require_once "components/footer.php"?>
     <script src="<?php echo URL_SITE?>js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

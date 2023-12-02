@@ -1,0 +1,9 @@
+.navbar{
+    background-color: skyblue;
+}
+.navbar .nav-link{
+    color: blue;
+}
+.navbar .nav-link.active{
+    color: rgb(0, 0, 53)
+}
