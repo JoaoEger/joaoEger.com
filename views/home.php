@@ -1,18 +1,14 @@
+<!--banner tela inicial -->
 <?php
-$dados= [
-    [
-        "title" => "curso de programção php",
-        "description" => "o melhor curso do brasil",
-        "img" => "banner1.jpeg",
-        "mobile" => "banner2.jpeg"
-    ],
-    [
-        "title" => "curso logica de programção",
-        "description" => "muita coisa legal vai encontrar",
-        "img" => "banner6.avif",
-        "mobile" => "banner3.jpeg"
-    ]
-];
+$sql = "SELECT * FROM banners ORDER BY id DESC";
+$qry = mysqli_query($con, $sql) or die("ERRO AO CONSULTAR");
+$dados = [];
+$i = 0;
+while($data = mysqli_fetch_assoc($qry)){
+    $dados[$i] = $data;
+    $i++;
+};
+
 ?>
 <div id="carouselExampleCaptions" class="carousel slide">
   
@@ -75,7 +71,7 @@ $stacks = [
     ]
 ];
 ?>
-<div class="container">
+<div class="container pt-4">
     <div class="row">
         <?php
         foreach($stacks as $stack){
